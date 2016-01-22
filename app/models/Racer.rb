@@ -3,7 +3,7 @@ class Racer
 	attr_accessor :id, :number, :first_name, :last_name, :gender, :group, :secs
 
   def to_s
-    "#{@id}: #{@number}, #{@number}, #{@first_name}"
+    "#{@id}"
   end
 
   def initialize(params={})
@@ -47,5 +47,11 @@ class Racer
 											 .projection({_id:true, number:true, first_name:true, last_name:true, gender:true, group:true, secs:true})
 											 .first
 		return result.nil? ? nil : Racer.new(result)
+	end
+
+	def save
+		# instance method
+		result = self.class.collection.insert_one(_id:@id, number:@number, first_name:@first_name, last_name:@last_name, gender:@gender, group:@group, secs:@secs)
+		@id = result.inserted_id.to_s
 	end
 end
