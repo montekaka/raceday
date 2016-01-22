@@ -232,7 +232,7 @@ get a connection to the MongoDB server and document collection.
 
 1. Create a model class by hand called `Racer` in the `app/models` directory. 
 This class must have:
-    * a class method called `mongo_client` that returns a MongoDB client 
+    * a class method called `mongo_client` that returns a MongoDB client     
     configured to communicate to the default database specified in the 
     `config/mongoid.yml` file.
     * a class method called `collection` that returns the `racers` 
