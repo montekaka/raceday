@@ -1,4 +1,5 @@
 class Racer
+	include ActiveModel::Model
 
 	attr_accessor :id, :number, :first_name, :last_name, :gender, :group, :secs
 
@@ -23,6 +24,18 @@ class Racer
 	def self.collection
 		self.mongo_client['racers']
 	end	
+
+	def persisted?
+		!@id.nil?
+	end
+
+	def created_at
+		nil
+	end
+
+	def updated_at
+		nil
+	end
 
 	def self.all(prototype={}, sort={:number=>1}, skip=0, limit=nil)		
 		tmp = {} #hash needs to stay in stable order provided
