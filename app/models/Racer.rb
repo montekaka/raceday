@@ -80,7 +80,7 @@ class Racer
 		params.slice!(:number, :first_name, :last_name, :gender, :group, :secs) if !params.nil?
 		self.class.collection
 							.find(_id:BSON::ObjectId.from_string(@id.to_s))
-							.update_one(:$set=>params)
+							.update_one(params)
 
 	end
 
@@ -88,5 +88,5 @@ class Racer
 		self.class.collection
 							.find(_id:BSON::ObjectId.from_string(@id.to_s))
 							.delete_one
-	end
+	end	
 end
