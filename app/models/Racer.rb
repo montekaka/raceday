@@ -43,7 +43,6 @@ class Racer
 		# 	tmp[k] = v  if [:first_name, :last_name, :gender, :group, :secs].include?(k)
 		# }
 		# sort=tmp
-		Rails.logger.debug {"getting all zips, prototype=#{prototype}, sort=#{sort}, skip=#{skip}, limit=#{limit}"}
 
 		prototype.each_with_object({}) {|(k,v), tmp| tmp[k.to_sym] = v; tmp}
 		#p prototype
